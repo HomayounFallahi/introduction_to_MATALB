@@ -1,4 +1,4 @@
-# Introduction to MATLAB for Engineers
+# Introduction to MATLAB
 
 A complete, self-contained introductory course on MATLAB designed for Chemical Engineers.
 
