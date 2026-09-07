@@ -1,0 +1,526 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+
+% Color scheme
+% ── Colors ──────────────────────────────────────────────────
+\usepackage[dvipsnames, table, xcdraw]{xcolor}
+
+% PoliMi official blue  (Pantone 286 C ≈ #003f8a)
+\definecolor{polimiblue}{RGB}{0,32,67}
+\definecolor{polimilightblue}{RGB}{0,102,204}
+\definecolor{poligray}{RGB}{90,90,90}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+\definecolor{primary}{RGB}{31, 78, 121}
+\definecolor{accent}{RGB}{192, 0, 0}
+\definecolor{lightgray}{RGB}{242, 242, 242}
+
+% Typography
+\titleformat{\section}{\Large\bfseries\color{primary}}{\thesection\quad}{0em}{}[\vspace{0.3em}\hrule]
+\titleformat{\subsection}{\large\bfseries\color{primary}}{\thesubsection\quad}{0em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.4em}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Introduction to MATLAB for Chemical Engineers\\Course instructor: Homayoun Fallahi}
+\rhead{\small Page \thepage \\}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\color{primary}\hrule}
+
+% Hyperlink styling
+\hypersetup{colorlinks=true, linkcolor=primary, urlcolor=accent}
+
+% Custom environments
+\usepackage{tcolorbox}
+\newtcolorbox{topicbox}{
+  colback=lightgray,
+  colframe=primary,
+  boxrule=0.5pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt
+}
+
+\title{{\Large Introduction to MATLAB for Chemical Engineers}}
+\vspace{1cm}
+\author{\textbf{Homayoun Fallahi}}
+\date{20/08/2026}
+
+\begin{document}
+
+% ============================================================================
+\section{Introduction to MATLAB}
+
+\subsection{MATLAB Environment}
+\begin{itemize}
+  \item MATLAB and its role in Chemical Engineering
+  \item MATLAB Desktop and MATLAB Online
+  \item Command Window, Workspace, Current Folder
+  \item Editor, Command History
+  \item Help and documentation
+\end{itemize}
+
+\subsection{Getting Started}
+\begin{itemize}
+  \item Basic calculations
+  \item Variables and assignment
+  \item Constants and built-in functions
+  \item Scripts and Live Scripts
+  \item Saving and running MATLAB programs
+\end{itemize}
+
+% ============================================================================
+\section{MATLAB Data Types and Data Structures}
+
+\subsection{Fundamental Data Types}
+\begin{itemize}
+  \item Numeric data: \texttt{double}, \texttt{single}
+  \item Logical data
+  \item Character arrays and Strings
+\end{itemize}
+
+\subsection{Date and Time Data}
+\begin{itemize}
+  \item \texttt{datetime} and \texttt{duration} types
+  \item Basic date/time calculations
+  \item Formatting dates and durations
+\end{itemize}
+
+\subsection{MATLAB Data Structures}
+\begin{itemize}
+  \item Cell arrays, Structure arrays, Table arrays
+  \item Accessing and modifying structured data
+\end{itemize}
+
+\subsection{Specialized Data Types}
+\begin{itemize}
+  \item Sparse arrays and when to use them
+  \item Basic creation and manipulation
+\end{itemize}
+
+\subsection{Data Type Conversion}
+\begin{itemize}
+  \item Numeric, string, and logical conversion
+  \item Converting between tables, cells, and structures
+  \item Checking data types with \texttt{class}, \texttt{isa}
+\end{itemize}
+
+% ============================================================================
+\section{Vectors, Matrices, and Array Operations}
+
+\subsection{Vectors and Matrices}
+\begin{itemize}
+  \item Scalars, row vectors, column vectors
+  \item Matrix creation and multidimensional arrays
+  \item Array initialization
+\end{itemize}
+
+\subsection{Indexing and Manipulation}
+\begin{itemize}
+  \item Array indexing and logical indexing
+  \item Slicing, concatenation, reshaping
+  \item Transpose operations
+\end{itemize}
+
+\subsection{Matrix Mathematics}
+\begin{itemize}
+  \item Matrix addition and multiplication
+  \item Element-wise operations
+  \item Matrix division, inverse, determinant
+  \item Matrix rank and gradient
+\end{itemize}
+
+% ============================================================================
+\section{MATLAB Operators and Logic}
+
+\subsection{Operators}
+\begin{itemize}
+  \item Arithmetic, relational, and logical operators
+  \item Operator precedence
+  \item Matrix vs. element-wise operations
+\end{itemize}
+
+\subsection{Logical Programming}
+\begin{itemize}
+  \item AND, OR, NOT, XOR, XNOR operations
+  \item Truth tables
+  \item Logical indexing and engineering applications
+\end{itemize}
+
+% ============================================================================
+\section{Control Structures}
+
+\subsection{Conditional Statements}
+\begin{itemize}
+  \item \texttt{if}, \texttt{elseif}, \texttt{else}
+  \item Nested conditions
+\end{itemize}
+
+\subsection{Selection Structures}
+\begin{itemize}
+  \item \texttt{switch}, \texttt{case}, \texttt{otherwise}
+\end{itemize}
+
+\subsection{Loops}
+\begin{itemize}
+  \item \texttt{for}, \texttt{while} loops
+  \item Nested loops
+  \item \texttt{break} and \texttt{continue} statements
+\end{itemize}
+
+\subsection{Engineering Applications}
+\begin{itemize}
+  \item Iterative calculations
+  \item Conditional process calculations
+  \item Repetitive engineering computations
+\end{itemize}
+
+% ============================================================================
+\section{Functions and Modular Programming}
+
+\subsection{Introduction to Functions}
+\begin{itemize}
+  \item Purpose, syntax, inputs, and outputs
+  \item Local variables and function scope
+\end{itemize}
+
+\subsection{Types of MATLAB Functions}
+\begin{itemize}
+  \item Inline functions and anonymous functions
+  \item \texttt{.m} function files and subfunctions
+  \item Function handles
+\end{itemize}
+
+\subsection{Variable Scope and Function Memory}
+\begin{itemize}
+  \item Local and global variables
+  \item Persistent variables with \texttt{persistent}
+\end{itemize}
+
+\subsection{Practical Function Development}
+\begin{itemize}
+  \item Multiple inputs and outputs
+  \item Default behavior and argument checking
+  \item Reusable engineering functions
+  \item Organizing MATLAB projects
+\end{itemize}
+
+% ============================================================================
+\section{Random Number Generation and Basic Statistical Analysis}
+
+\subsection{Random Numbers}
+\begin{itemize}
+  \item Random number generation: \texttt{rand}, \texttt{randi}, \texttt{randn}
+  \item Random number types and distributions
+  \item Reproducibility with random seeds
+\end{itemize}
+
+\subsection{Descriptive Statistics}
+\begin{itemize}
+  \item Mean, median, variance, standard deviation
+  \item Range and coefficient of variation
+\end{itemize}
+
+\subsection{Regression and Correlation}
+\begin{itemize}
+  \item Covariance and correlation coefficient
+  \item Correlation tests and statistical significance
+  \item Coefficient of determination ($R^2$)
+\end{itemize}
+
+\subsection{Engineering Data Analysis}
+\begin{itemize}
+  \item Experimental data and measurement variability
+  \item Comparing datasets
+  \item Basic statistical interpretation
+\end{itemize}
+
+% ============================================================================
+\section{Data Visualization}
+
+\subsection{Basic Plots}
+\begin{itemize}
+  \item Line plots, scatter plots, bar plots
+  \item Histograms and boxplots
+\end{itemize}
+
+\subsection{Engineering Data Visualization}
+\begin{itemize}
+  \item Discrete data plotting
+  \item Multiple datasets and curves
+  \item Subplots and error bars
+\end{itemize}
+
+\subsection{Advanced Axis Options}
+\begin{itemize}
+  \item Logarithmic axes (semi-log and log-log plots)
+  \item Axis scaling and limits
+\end{itemize}
+
+\subsection{Plot Customization}
+\begin{itemize}
+  \item Titles, axis labels, units
+  \item Legends, annotations, grid
+  \item Exporting figures
+\end{itemize}
+
+% ============================================================================
+\section{File Handling and Input/Output}
+
+\subsection{File Management}
+\begin{itemize}
+  \item File paths and directories
+  \item File operations: \texttt{fopen}, \texttt{fclose}, \texttt{exist}
+  \item File existence checking
+\end{itemize}
+
+\subsection{Reading and Writing Data}
+\begin{itemize}
+  \item Formatted input/output: \texttt{fprintf}, \texttt{fscanf}
+  \item Reading and writing text files
+  \item CSV and structured data
+\end{itemize}
+
+\subsection{File Position and Error Handling}
+\begin{itemize}
+  \item File pointers and positions: \texttt{ftell}, \texttt{feof}
+  \item Detecting end-of-file
+  \item Handling file errors with \texttt{ferror}
+\end{itemize}
+
+\subsection{Engineering Data Import/Export}
+\begin{itemize}
+  \item Working with experimental datasets
+  \item Saving MATLAB data
+  \item Exporting calculated results
+\end{itemize}
+
+% ============================================================================
+\section{Symbolic Mathematics}
+
+\subsection{Symbolic Variables and Expressions}
+\begin{itemize}
+  \item Symbolic variables and constants
+  \item Symbolic expressions
+\end{itemize}
+
+\subsection{Symbolic Algebra}
+\begin{itemize}
+  \item Simplification, expansion, factorization
+  \item Substitution operations
+\end{itemize}
+
+\subsection{Symbolic Equations}
+\begin{itemize}
+  \item Solving equations and systems of equations
+  \item Using \texttt{solve}
+\end{itemize}
+
+\subsection{Calculus}
+\begin{itemize}
+  \item Symbolic differentiation and integration
+  \item Limits
+\end{itemize}
+
+\subsection{Chemical Engineering Applications}
+\begin{itemize}
+  \item Analytical material balances
+  \item Rate expressions
+  \item Analytical integration
+  \item Symbolic derivation of engineering equations
+\end{itemize}
+
+% ============================================================================
+\section{Numerical Solution of Algebraic Equations}
+
+\subsection{Linear Algebraic Equations}
+\begin{itemize}
+  \item Systems of linear equations
+  \item Matrix formulation
+\end{itemize}
+
+\subsection{Nonlinear Equations}
+\begin{itemize}
+  \item Root-finding concepts
+  \item Single nonlinear equations with \texttt{fzero}
+\end{itemize}
+
+\subsection{Iterative Root-Finding Methods}
+\begin{itemize}
+  \item Bisection method, Secant method
+  \item Convergence criteria and error estimation
+  \item Comparison of root-finding methods
+\end{itemize}
+
+\subsection{Systems of Nonlinear Equations}
+\begin{itemize}
+  \item Using \texttt{fsolve}
+  \item Initial guesses and multiple solutions
+  \item Scaling considerations
+  \item Chemical equilibrium examples
+\end{itemize}
+
+% ============================================================================
+\section{Numerical Differentiation and Integration}
+
+\subsection{Numerical Differentiation}
+\begin{itemize}
+  \item Numerical vs. symbolic differentiation
+  \item Finite-difference concept
+  \item Forward, backward, and central differences
+  \item Numerical differentiation in MATLAB
+\end{itemize}
+
+\subsection{Numerical Integration}
+\begin{itemize}
+  \item Numerical vs. symbolic integration
+  \item Trapezoidal integration using \texttt{trapz}
+  \item Advanced integration with \texttt{integral}
+  \item Integration of experimental data
+\end{itemize}
+
+\subsection{Accuracy and Error}
+\begin{itemize}
+  \item Step size and numerical error
+  \item Accuracy considerations
+\end{itemize}
+
+% ============================================================================
+\section{Interpolation, Curve Fitting, and Basic Regression}
+
+\subsection{Interpolation}
+\begin{itemize}
+  \item Interpolation concepts
+  \item Linear interpolation using \texttt{interp1}
+  \item Extrapolation
+\end{itemize}
+
+\subsection{Curve Fitting}
+\begin{itemize}
+  \item Polynomial fitting and basic regression
+  \item Comparing fitted and experimental data
+\end{itemize}
+
+\subsection{Statistical Evaluation}
+\begin{itemize}
+  \item Residuals and coefficient of determination ($R^2$)
+  \item Error analysis
+  \item Model quality assessment
+\end{itemize}
+
+% ============================================================================
+\section{Basic Debugging and Efficient MATLAB Coding}
+
+\subsection{Debugging}
+\begin{itemize}
+  \item Understanding error messages
+  \item Syntax, runtime, and logical errors
+  \item Common MATLAB mistakes
+\end{itemize}
+
+\subsection{Debugging Tools}
+\begin{itemize}
+  \item Breakpoints and step-by-step execution
+  \item Inspecting variables
+  \item Command Window debugging
+\end{itemize}
+
+\subsection{Efficient Coding}
+\begin{itemize}
+  \item Vectorization techniques
+  \item Avoiding unnecessary calculations
+  \item Basic preallocation
+  \item Efficient matrix operations
+  \item Readable and maintainable code
+\end{itemize}
+
+\subsection{Verification}
+\begin{itemize}
+  \item Checking intermediate results
+  \item Dimensional and physical consistency
+  \item Comparing numerical and analytical results
+\end{itemize}
+
+% ============================================================================
+\section{MATLAB with VS Code and AI-Assisted Coding}
+
+\subsection{MATLAB in VS Code}
+\begin{itemize}
+  \item MATLAB extensions and syntax highlighting
+  \item Running MATLAB code from VS Code
+  \item Working with scripts and functions
+\end{itemize}
+
+\subsection{Using AI for MATLAB Programming}
+\begin{itemize}
+  \item Using AI to explain MATLAB syntax
+  \item Generating MATLAB code with AI
+  \item Converting algorithms into MATLAB
+  \item Debugging with AI
+  \item Improving and optimizing code
+\end{itemize}
+
+\subsection{Responsible AI-Assisted Programming}
+\begin{itemize}
+  \item Verifying generated code
+  \item Identifying hallucinated functions
+  \item Checking numerical correctness
+  \item Testing AI-generated code
+  \item Data and privacy considerations
+  \item AI as a programming assistant rather than a substitute
+\end{itemize}
+
+% ============================================================================
+\section{Introduction to Chemical Engineering MATLAB Projects}
+
+\subsection{Problem Formulation}
+\begin{itemize}
+  \item Translating engineering problems into MATLAB
+  \item Defining inputs, outputs, and assumptions
+\end{itemize}
+
+\subsection{Implementation}
+\begin{itemize}
+  \item Breaking problems into functions
+  \item Calculation workflow
+  \item Data input, computation, and visualization
+\end{itemize}
+
+\subsection{Verification and Presentation}
+\begin{itemize}
+  \item Checking physical plausibility
+  \item Comparing with analytical/known results
+  \item Error analysis
+  \item Presenting MATLAB results
+\end{itemize}
+
+\subsection{Introductory Projects}
+\begin{itemize}
+  \item Material balance calculations
+  \item Energy balance computations
+  \item Reaction kinetics analysis
+  \item Experimental data analysis
+  \item Basic reactor calculations
+\end{itemize}
+
+% ============================================================================
+
+
+\end{document}
